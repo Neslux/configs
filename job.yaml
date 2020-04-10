@@ -1,20 +1,22 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: iptest
+  name: jobBot
 spec:
   template:
     metadata:
-      name: iptest
+      name: jobBot
     spec:
       containers:
-      - name: iptest
-        image: gcr.io/traider-project/iptest@sha256:31228f03bb80055a636c73e94f62107813d1763e563e289fc1a21e799d849331
+      - name: jobBot
+        image: gcr.io/traider-project/traderbot@sha256:4487b64d2d0c1e35f9c5b593ef2da5ec163aa8de8f7543474677f50976df51ab
         env:
-        - name: GREETING
-          value: "Warm greetings to"
-        - name: HONORIFIC
-          value: "The Most Honorable"
-        - name: NAME
-          value: "Kubernetes"
+        - name: TOKEN
+          value: "ea609998-1a26-4ac8-9987-83ef7ade1f08"
+        - name: APIKEY
+          value: "7E07C87E-FD71-4C4A-A326-929DA206D9F9"
+        - name: SERVICE_URL
+          value: "http://wa-traider-bot-api.azurewebsites.net/api/"
+        - name: WEBHOOK_NOTIFICATION_CENTER
+          value: "http://wa-clever-bots.azurewebsites.net/api/webhook/botStarted"
       restartPolicy: Never
