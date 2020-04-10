@@ -8,7 +8,7 @@ spec:
       name: iptest
     spec:
       containers:
-      - name: traderbot-iptest
+      - name: iptest
         image: gcr.io/traider-project/iptest@sha256:31228f03bb80055a636c73e94f62107813d1763e563e289fc1a21e799d849331
         env:
         - name: GREETING
