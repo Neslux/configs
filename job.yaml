@@ -1,13 +1,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: botjob
+  name: iptest
 spec:
   template:
     metadata:
-      name: botjob
+      name: iptest
     spec:
       containers:
-      - name: traderbot
+      - name: traderbot_iptest
         image: gcr.io/traider-project/iptest@sha256:31228f03bb80055a636c73e94f62107813d1763e563e289fc1a21e799d849331
+        env:
+        - name: GREETING
+          value: "Warm greetings to"
+        - name: HONORIFIC
+          value: "The Most Honorable"
+        - name: NAME
+          value: "Kubernetes"
       restartPolicy: Never
