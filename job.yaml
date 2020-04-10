@@ -9,5 +9,5 @@ spec:
     spec:
       containers:
       - name: traderbot
-        image: gcr.io/traider-project/traderbot@sha256:4487b64d2d0c1e35f9c5b593ef2da5ec163aa8de8f7543474677f50976df51ab
+        image: gcr.io/traider-project/iptest@sha256:31228f03bb80055a636c73e94f62107813d1763e563e289fc1a21e799d849331
       restartPolicy: Never
