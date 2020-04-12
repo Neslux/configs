@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: traderbot-job1
+spec:
+  template:
+    metadata:
+      name: traderbot-job1
+    spec:
+      containers:
+      - name: traderbot-job1
+        image: gcr.io/traider-project/traderbot@sha256:2616ee325d8819d5b700ed65714dc4daf9931fd2e7754c9e84d6a0cfeafd838f
+        env:
+        - name: TOKEN
+          value: "ea609998-1a26-4ac8-9987-83ef7ade1f08"
+        - name: APIKEY
+          value: "7E07C87E-FD71-4C4A-A326-929DA206D9F9"
+        - name: SERVICE_URL
+          value: "http://wa-traider-bot-api.azurewebsites.net/api/"
+        - name: WEBHOOK_NOTIFICATION_CENTER
+          value: "http://wa-clever-bots.azurewebsites.net/api/webhook/botStarted"
+        - name: CHATID
+          value: "499464041"
+      restartPolicy: Never
