@@ -21,6 +21,8 @@ spec:
           value: "http://wa-clever-bots.azurewebsites.net/api/webhook/botStarted"
         - name: CHATID
           value: "499464041"
+        - name: MONGODB
+          value: "mongodb://mongo:27017"
       - image: mongo
         name: mongo
         ports:
