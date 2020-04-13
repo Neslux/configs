@@ -22,7 +22,7 @@ spec:
         - name: CHATID
           value: "499464041"
         - name: MONGODB
-          value: "mongodb://mongo:27017"
+          value: "mongodb://127.0.0.1:27017"
       - image: mongo
         name: mongo
         ports:
