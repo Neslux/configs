@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: traderbot-job1
-        image: gcr.io/traider-project/traderbot@sha256:54e42f04eb5b230a548ebf1f0b16d1fb5664049d3e04e3cd62f86f589cf9f608
+        image: gcr.io/traider-project/traderbot@sha256:102c74c1f82e39ee5a6c93e0e51921c22ef44af1a0e5c972e167f149e8ddab74
         env:
         - name: TOKEN
           value: "ea609998-1a26-4ac8-9987-83ef7ade1f08"
@@ -27,7 +27,9 @@ spec:
         name: mongo
         ports:
         - containerPort: 27017
-        resources: {}
+        resources:
+        - requests:
+          - cpu: 50m
         volumeMounts:
         - mountPath: /data/db
           name: mongodata
