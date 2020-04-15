@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: traderbot-job2
+spec:
+  template:
+    metadata:
+      name: traderbot-job2
+    spec:
+      containers:
+      - name: traderbot-job2
+        image: gcr.io/traider-project/traderbot@sha256:7d59f3a627b5a859af8d3f8bf66e599453b57b041ef50b5cf39aa2aeade470e6
+        env:
+        - name: TOKEN
+          value: "ea609998-1a26-4ac8-9987-83ef7ade1f07"
+        - name: APIKEY
+          value: "7E07C87E-FD71-4C4A-A326-929DA206D9F9"
+        - name: SERVICE_URL
+          value: "http://wa-traider-bot-api.azurewebsites.net/api/"
+        - name: WEBHOOK_NOTIFICATION_CENTER
+          value: "http://wa-clever-bots.azurewebsites.net/api/webhook/botStarted"
+        - name: CHATID
+          value: "467544528"
+        - name: MONGODB
+          value: "mongodb://127.0.0.1:27017"
+        resources:
+          requests:
+            cpu: 50m
+      - image: mongo
+        name: mongo
+        ports:
+        - containerPort: 27017
+        resources:
+          requests:
+            cpu: 50m
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodata
+      restartPolicy: OnFailure
+      volumes:
+      - name: mongodata
