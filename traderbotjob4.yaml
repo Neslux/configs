@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: traderbot-job4
-        image: gcr.io/traider-project/traderbot@sha256:4487b64d2d0c1e35f9c5b593ef2da5ec163aa8de8f7543474677f50976df51ab
+        image: gcr.io/traider-project/traderbot@sha256:7d59f3a627b5a859af8d3f8bf66e599453b57b041ef50b5cf39aa2aeade470e6
         env:
         - name: TOKEN
           value: "bdda46f2-96b0-41d4-9720-171272e8e0a5"
@@ -21,4 +21,21 @@ spec:
           value: "http://wa-clever-bots.azurewebsites.net/api/webhook/botStarted"
         - name: CHATID
           value: "460121491"
-      restartPolicy: Never
+        - name: MONGODB
+          value: "mongodb://127.0.0.1:27017"
+        resources:
+          requests:
+            cpu: 50m
+      - image: mongo
+        name: mongo
+        ports:
+        - containerPort: 27017
+        resources:
+          requests:
+            cpu: 50m
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodata
+      restartPolicy: OnFailure
+      volumes:
+      - name: mongodata

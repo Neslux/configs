@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: traderbot-job1
-        image: gcr.io/traider-project/traderbot@sha256:102c74c1f82e39ee5a6c93e0e51921c22ef44af1a0e5c972e167f149e8ddab74
+        image: gcr.io/traider-project/traderbot@sha256:7d59f3a627b5a859af8d3f8bf66e599453b57b041ef50b5cf39aa2aeade470e6
         env:
         - name: TOKEN
           value: "ea609998-1a26-4ac8-9987-83ef7ade1f08"
